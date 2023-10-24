@@ -3,6 +3,7 @@
 
 use std::process::{Command, ExitStatus};
 
+
 // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
 #[tauri::command]
 fn greet(url: &str, musiconly: &str) -> String {
@@ -20,8 +21,10 @@ fn greet(url: &str, musiconly: &str) -> String {
 /// TODO: refactor duplicate code 
 fn download(url: &str, musiconly: &str) -> ExitStatus {
     // yt-dlp download 
+
     if musiconly == "y" {
         if url.contains("playlist"){
+
             let mut the_process = Command::new("yt-dlp")
             .arg("--extract-audio")
             .arg("--audio-format")
@@ -37,7 +40,6 @@ fn download(url: &str, musiconly: &str) -> ExitStatus {
                 .ok().expect("Couldn't wait for process.");
             // Output some exit information.
             // println!("process finished with: {the_status}");
-            the_process.creation_flags(CREATE_NO_WINDOW);
             the_status
         } else {
             let mut the_process = Command::new("yt-dlp")
@@ -54,7 +56,6 @@ fn download(url: &str, musiconly: &str) -> ExitStatus {
                 .ok().expect("Couldn't wait for process.");
             // Output some exit information.
             // println!("process finished with: {the_status}");
-            the_process.creation_flags(CREATE_NO_WINDOW);
             the_status   
         }
     }
@@ -75,7 +76,6 @@ fn download(url: &str, musiconly: &str) -> ExitStatus {
                 .ok().expect("Couldn't wait for process.");
             // Output some exit information.
             // println!("process finished with: {the_status}");
-            the_process.creation_flags(CREATE_NO_WINDOW);
             the_status
         } else {
             let mut the_process = Command::new("yt-dlp")
@@ -92,7 +92,6 @@ fn download(url: &str, musiconly: &str) -> ExitStatus {
                 .ok().expect("Couldn't wait for process.");
             // Output some exit information.
             // println!("process finished with: {the_status}");
-            the_process.creation_flags(CREATE_NO_WINDOW);
             the_status
         }
     }
