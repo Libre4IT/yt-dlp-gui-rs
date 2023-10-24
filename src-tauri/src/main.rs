@@ -37,6 +37,7 @@ fn download(url: &str, musiconly: &str) -> ExitStatus {
                 .ok().expect("Couldn't wait for process.");
             // Output some exit information.
             // println!("process finished with: {the_status}");
+            the_process.creation_flags(CREATE_NO_WINDOW);
             the_status
         } else {
             let mut the_process = Command::new("yt-dlp")
@@ -53,6 +54,7 @@ fn download(url: &str, musiconly: &str) -> ExitStatus {
                 .ok().expect("Couldn't wait for process.");
             // Output some exit information.
             // println!("process finished with: {the_status}");
+            the_process.creation_flags(CREATE_NO_WINDOW);
             the_status   
         }
     }
@@ -73,6 +75,7 @@ fn download(url: &str, musiconly: &str) -> ExitStatus {
                 .ok().expect("Couldn't wait for process.");
             // Output some exit information.
             // println!("process finished with: {the_status}");
+            the_process.creation_flags(CREATE_NO_WINDOW);
             the_status
         } else {
             let mut the_process = Command::new("yt-dlp")
@@ -89,6 +92,7 @@ fn download(url: &str, musiconly: &str) -> ExitStatus {
                 .ok().expect("Couldn't wait for process.");
             // Output some exit information.
             // println!("process finished with: {the_status}");
+            the_process.creation_flags(CREATE_NO_WINDOW);
             the_status
         }
     }
